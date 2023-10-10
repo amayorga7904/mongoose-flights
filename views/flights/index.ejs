@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+
+  <h2>Looks Like You're a Flight Risk For the Following:</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Airport</th>
+        <th>Airline</th>
+        <th>Flight Number</th>
+        <th>Departure</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Write the line of EJS to iterate over movies using forEach -->
+      <% flights.forEach(function(f) { %>
+        <tr>
+          <td>
+            <%= f.airline %>
+          </td>
+          <td>
+            <%= f.airport %>
+          </td>
+          <td>
+            <%= f.flightno %>
+          </td>
+          <td>
+            <%= f.departs %></td>
+        </tr>
+        <% }); %>
+    </tbody>
+  </table>
+
+  <%- include('../partials/header') %>
