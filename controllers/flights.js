@@ -9,7 +9,7 @@ module.exports = {
 
 async function show(req, res) {
   const flight = await Flight.findById(req.params.id)
-  res.render('flights/show', { flight })
+  res.render('flights/show', { title: 'Flight Details', flight })
 }
 
    //this will show all the flights in my DB

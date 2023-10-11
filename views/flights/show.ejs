@@ -8,7 +8,46 @@
     <h3>flight Number: </h3>
     <div><%= flight.flightno %></div>
     <h3>Date: </h3>
-    <div><%= flight.date %></div>
+    <div><%= flight.departs %></div>
   </section>
-
+  <br>
+  <br>
+  <h3>Add Destinations</h3>
+  <form id="add-destination-form" method="POST"
+  action="/flights/<%= flight._id %>/destinations">
+  <label>Airport:
+    <select name="airport">
+      <option value="AUS">AUS</option>
+      <option value="DFW">DFW</option>
+      <option value="DEN">DEN</option>
+      <option value="LAX">LAX</option>
+      <option value="SAN">SAN</option>
+    </select>
+  </label>
+  <label>Arrival:
+    <input type="datetime-local" name="arrival">
+  </label>
+  <input type="submit" value="Add">
+</form>
+<table>
+    <thead>
+      <tr>
+        <th>Airport</th>
+        <th>Arrival</th>
+      </tr>
+    </thead>
+<tbody>
+    <!-- Write the line of EJS to iterate over flights using forEach -->
+    <% flight.destinations.forEach(function(d) { %>
+      <tr>
+        <td>
+          <%= d.airport %>
+        </td>
+        <td>
+          <%= d.arrival %>
+        </td>
+    </tr>
+    <% }); %>
+</tbody>
+</table>
   <%- include('../partials/footer') %>
