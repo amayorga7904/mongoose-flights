@@ -3,8 +3,14 @@ const Flight = require('../models/flight');
 module.exports = {
     new: newFlight,
     create,
-    index
+    index, 
+    show
   };
+
+async function show(req, res) {
+  const flight = await Flight.findById(req.params.id)
+  res.render('flights/show', { flight })
+}
 
    //this will show all the flights in my DB
  function index(req, res) {

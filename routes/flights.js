@@ -10,5 +10,6 @@ router.post('/', flightsCtrl.create)
 //localhost:3000/flights
 //this will show all flights
 router.get('/', flightsCtrl.index)
-
+//flights/:id
+router.get('/:id', flightsCtrl.show)
 module.exports = router;
