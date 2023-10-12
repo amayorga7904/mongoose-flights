@@ -10,7 +10,7 @@ module.exports = {
 
 async function show(req, res) {
   const flight = await Flight.findById(req.params.id)
-  const tickets = Ticket.find({flight: flight._id})
+  const tickets = await Ticket.find({flight: flight._id})
   res.render('flights/show', { title: 'Flight Details', flight, tickets})
 }
    //this will show all the flights in my DB
